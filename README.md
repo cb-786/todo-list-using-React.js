@@ -139,6 +139,3 @@ const [inputValue, setInputValue] = useState('');
   <li>Build for production with <code>npm run build</code></li>
 </ol>
 
-<h2>License</h2>
-
-<p>MIT</p>
