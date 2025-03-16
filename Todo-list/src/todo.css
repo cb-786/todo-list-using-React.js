@@ -1,0 +1,225 @@
+/* todo.css - AMOLED Black & Electric Blue Theme */
+:root {
+    --amoled-black: #000000;
+    --dark-gray: #121212;
+    --medium-gray: #1e1e1e;
+    --light-gray: #333333;
+    --electric-blue: #00c3ff;
+    --electric-blue-hover: #33d0ff;
+    --electric-blue-dim: #005a76;
+    --text-color: #ffffff;
+    --text-secondary: #aaaaaa;
+    --danger-color: #ff3b5c;
+    --danger-hover: #ff6b83;
+    --success-color: #00e676;
+    --transition-speed: 0.2s;
+    }
+    
+    body {
+    background-color: var(--amoled-black);
+    color: var(--text-color);
+    font-family: 'Segoe UI', 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    }
+    
+    #root {
+    width: 100%;
+    max-width: 600px;
+    padding: 2rem;
+    }
+    
+    /* Container styling */
+    div:first-child {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--dark-gray);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    }
+    
+    /* Input and button container */
+    div:first-child > div:first-child {
+    display: flex;
+    margin-bottom: 1.5rem;
+    gap: 10px;
+    }
+    
+    input {
+    flex: 1;
+    background-color: var(--medium-gray);
+    border: 2px solid var(--light-gray);
+    border-radius: 8px;
+    padding: 12px 16px;
+    color: var(--text-color);
+    font-size: 16px;
+    transition: all var(--transition-speed) ease;
+    outline: none;
+    }
+    
+    input:focus {
+    border-color: var(--electric-blue);
+    box-shadow: 0 0 0 2px rgba(0, 195, 255, 0.3);
+    }
+    
+    input::placeholder {
+    color: var(--text-secondary);
+    }
+    
+    button {
+    background-color: var(--electric-blue);
+    color: var(--amoled-black);
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+    }
+    
+    button:hover {
+    background-color: var(--electric-blue-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    hr {
+    border: none;
+    height: 1px;
+    background-color: var(--light-gray);
+    margin: 1.5rem 0;
+    width: 100%;
+    }
+    
+    h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: var(--electric-blue);
+    letter-spacing: 0.5px;
+    }
+    
+    ol {
+    list-style-position: inside;
+    padding: 0;
+    margin: 0;
+    counter-reset: item;
+    }
+    
+    li {
+    background-color: var(--medium-gray);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all var(--transition-speed) ease;
+    position: relative;
+    counter-increment: item;
+    }
+    
+    li::before {
+    content: counter(item) ".";
+    color: var(--electric-blue);
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: 16px;
+    }
+    
+    li:hover {
+    background-color: var(--light-gray);
+    transform: translateX(5px);
+    }
+    
+    li[style*="line-through"] {
+    color: var(--text-secondary);
+    background-color: rgba(30, 30, 30, 0.7);
+    }
+    
+    li[style*="line-through"]::before {
+    color: var(--electric-blue-dim);
+    }
+    
+    /* Task text container */
+    li > span:first-of-type {
+    flex: 1;
+    word-break: break-word;
+    }
+    
+    /* Button container */
+    li > div {
+    display: flex;
+    gap: 8px;
+    }
+    
+    /* Delete button */
+    li button:first-of-type {
+    background-color: var(--danger-color);
+    }
+    
+    li button:first-of-type:hover {
+    background-color: var(--danger-hover);
+    }
+    
+    /* Done button */
+    li button:last-of-type {
+    background-color: var(--success-color);
+    color: var(--amoled-black);
+    }
+    
+    li button:last-of-type:hover {
+    background-color: var(--success-color);
+    opacity: 0.9;
+    }
+    
+    /* Responsive design */
+    @media (max-width: 600px) {
+    #root {
+    padding: 1rem;
+    }
+    
+    div:first-child {
+    padding: 1.5rem;
+    }
+    
+    li {
+    flex-direction: column;
+    align-items: flex-start;
+    }
+    
+    li > div {
+    margin-top: 10px;
+    align-self: flex-end;
+    }
+    }
+    
+    /* Animation for new items */
+    @keyframes fadeIn {
+    from {
+    opacity: 0;
+    transform: translateY(10px);
+    }
+    to {
+    opacity: 1;
+    transform: translateY(0);
+    }
+    }
+    
+    li {
+    animation: fadeIn 0.3s ease-out;
+    }
