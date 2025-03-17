@@ -63,7 +63,8 @@ setinp('');
       <h1>Todo List :-</h1>
       <ol>
         {todos.map((item) => (  
-                 <li key={item.id} style={{textDecoration : item.completed ? "line-through" : "none"}}>{item.task}  
+                <li key={item.id}>
+                   <span   style={{textDecoration : item.completed ? "line-through" : "none"}}>{item.task}  </span> 
                    <button onClick={()=>deltask(item.id)}>Delete</button> &nbsp; &nbsp; &nbsp; &nbsp; 
                    <button onClick={()=>Done(item.id)} >Done</button>
                    </li>
